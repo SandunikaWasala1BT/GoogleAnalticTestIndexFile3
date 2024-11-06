@@ -623,6 +623,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     </body>
+
+    <script>
+
+// Define the global variables
+window.myGlobalVariable1 = "initialValue1";
+window.myGlobalVariable2 = "initialValue2";
+
+// Listen for messages from the iframe
+window.addEventListener("message", (event) => {
+    // Verify the origin to ensure the message is from the expected source
+    if (event.origin === "https://gyde365-qualify-1bt-bc-ga.azurewebsites.net") {
+        
+        // Check if the message contains the correct action
+        if (event.data.action === "updateGlobalVariable1") {
+            // Update the first global variable
+            window.myGlobalVariable1 = event.data.value; 
+            console.log("Global variable 1 updated to:", window.myGlobalVariable1);
+            // Check if myGlobalVariable1 is "Next" and dispatch a custom event
+            if (window.myGlobalVariable1 === "Next") {
+                const customEvent = new Event("globalVariable1IsNext");
+                window.dispatchEvent(customEvent);
+            }
+        } else if (event.data.action === "updateGlobalVariable2") {
+            // Update the second global variable
+            window.myGlobalVariable2 = event.data.value; 
+            console.log("Global variable 2 updated to:", window.myGlobalVariable2);
+        }
+    }
+}, false);
+
+</script>
+    
 </html>
 <!-- Page optimized by LiteSpeed Cache @2024-10-31 04:27:24 -->
 <!-- Page cached by LiteSpeed Cache 6.5.2 on 2024-10-31 04:27:24 -->
