@@ -633,7 +633,7 @@ window.myGlobalVariable2 = "initialValue2";
 // Listen for messages from the iframe
 window.addEventListener("message", (event) => {
     // Verify the origin to ensure the message is from the expected source
-    if (event.origin === "https://gyde365-qualify-1bt-bc-ga.azurewebsites.net") {
+    if (event.origin === "https://gyde365-qualify-1bt-fscm-test.azurewebsites.net") {
         
         // Check if the message contains the correct action
         if (event.data.action === "updateGlobalVariable1") {
