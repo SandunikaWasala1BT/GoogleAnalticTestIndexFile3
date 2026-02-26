@@ -597,8 +597,21 @@
             <script data-optimized="1" src="https://seer365.com/wp-content/litespeed/js/e785bb87b09b56f8d6b6780c48c61017.js?ver=61017" id="elementor-frontend-js" defer data-deferred="1"></script>
             <script data-optimized="1" src="https://seer365.com/wp-content/litespeed/js/d53967f0a7ee92075fa1053272ab39d2.js?ver=b39d2" id="pro-elements-handlers-js" defer data-deferred="1"></script>
         </div>
+        <script>
+    const iframe = document.getElementById("surveyIframe");
+
+    iframe.addEventListener("load", function() {
+        const parentUrl = window.location.href;
+
+        iframe.contentWindow.postMessage(
+            { type: "parentUrl", url: parentUrl },
+            "https://gyde365-qualify-1bt-crm-ga.azurewebsites.net/"
+        );
+    });
+  </script>
     </body>
 
+    
     <script>
 
 // Define the global variables
@@ -633,6 +646,7 @@ window.addEventListener("message", (event) => {
 </html>
 <!-- Page optimized by LiteSpeed Cache @2024-10-31 04:27:24 -->
 <!-- Page cached by LiteSpeed Cache 6.5.2 on 2024-10-31 04:27:24 -->
+
 
 
 
